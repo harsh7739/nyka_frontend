@@ -12,7 +12,7 @@ function AddProduct(){
 
     async function handlePostData(e){
         e.preventDefault()
-        let obj={picture,name,category,gender,price}
+        let obj={picture,name,category,gender,price,description}
         try {
             let res=await fetch("https://nyka-j1r0.onrender.com/api/products",{
                 method:"POST",
