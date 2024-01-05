@@ -11,7 +11,7 @@ import ProductList from './component/ProductList';
 function App() {
   return (
     <div className="App">
-     <h1>App Page</h1>
+    
      {/* <Navbar /> */}
      <MainRoute />
      <Sidebar />
