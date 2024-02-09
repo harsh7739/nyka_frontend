@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { Flex, Spacer, Stack,Input,Select  } from '@chakra-ui/react'
+import { PhoneIcon, AttachmentIcon, AddIcon, WarningIcon } from '@chakra-ui/icons'
 
 function AddProduct(){
     const [picture,setPicture]=useState("")
@@ -31,13 +33,30 @@ function AddProduct(){
     return (
         <>
        <form onSubmit={handlePostData}>
-        <input type="text" placeholder="Enter Picture" value={picture}  onChange={(e)=>setPicture(e.target.value)} />
-        <input type="text" placeholder="Name" value={name}   onChange={(e)=>setname(e.target.value)}  />
-        <input type="text" placeholder="category" value={category} onChange={(e)=>setCategory(e.target.value)}  />
-        <input type="text" placeholder="gender" value={gender}  onChange={(e)=>setGender(e.target.value)} />
-        <input type="number" placeholder="price" value={price} onChange={(e)=>setPrice(e.target.value)}/>
-        <input type="text" placeholder="Discription" value={description} onChange={(e)=>setDiscription(e.target.value)} />
-        <input type="submit" value={"Submit"}    />
+       <Stack spacing={3} w="40%" m="auto" >
+        <Input type="text" placeholder="Enter Picture" value={picture}  onChange={(e)=>setPicture(e.target.value)} />
+       
+        <Input type="text" placeholder="Name" value={name}   onChange={(e)=>setname(e.target.value)}  />
+       
+       
+        <Input type="text" placeholder="Discription" value={description} onChange={(e)=>setDiscription(e.target.value)} />
+       
+        <Select  value={category} placeholder='Select option' onChange={(e)=>setCategory(e.target.value)} >
+            <option value="makeup">makeup</option>
+            <option value="haircare">Haircare</option>
+            <option value="skincare">Skincare</option>
+        </Select >
+       
+        <Select placeholder='Select option'  value={gender} onChange={(e)=>setGender(e.target.value)} >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </Select >
+       
+        <Input type="number" placeholder="price" value={price} onChange={(e)=>setPrice(e.target.value)}/>
+        
+        <Input type="submit" value={"Submit"}    />
+       
+       </Stack>
        </form>
         </>
     ) 

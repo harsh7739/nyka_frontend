@@ -6,6 +6,7 @@ import Analytics from "../component/Analytics"
 import SingleProduct from "../component/SingleProduct"
 import AddProduct from "../component/AddProduct"
 import MainContainer from "../component/MainContainer"
+import Sidebar from "../component/Sidebar"
 
 
 function MainRoute(){
@@ -13,7 +14,7 @@ function MainRoute(){
     return (
         <>
         <Routes>
-
+      <Route path="/" element={<Sidebar />} />
      <Route path="/register" element={<Signup />}></Route>
      <Route path="/login" element={<Login />} />
      <Route path="/dashboard" element={<MainContainer />} />

@@ -16,6 +16,9 @@ import avatar from "../Assets/Profile Avtar.jpg"
 import search from "../Assets/search.jpg"
 import arrowUp from "../Assets/arrow-up.jpg"
 import LatestOrder from './LatestOrder';
+import { useSelector } from 'react-redux';
+import SkeletonComponent from './Skeleton';
+import Sidebar from './Sidebar';
 const MainContainer = () => {
 
   const [searchParams,setSearchParams] = useSearchParams()
@@ -23,6 +26,17 @@ const MainContainer = () => {
     const [category,setCategory] = useState(searchParams.get("category") || "")
     const [order,setOrder] = useState(searchParams.get("order") || "")
     const [name,setName] = useState(searchParams.get("name")||"")
+    
+    const navigate=useNavigate()
+
+    
+    const isAuth=useSelector((store)=>store.AuthReducer.isAuth)
+    const isLoading=useSelector((store)=>store.productReducer.isLoading)
+
+
+    if(!isAuth){
+        navigate("/")
+    }
 
 
     function handleName(e){
@@ -63,7 +77,7 @@ const MainContainer = () => {
     },[name,gender,category,order])
 
 
-    const navigate=useNavigate()
+    
 
     // function addProduct(){
     //   console.log("Add Product clicked...")
@@ -90,7 +104,9 @@ const MainContainer = () => {
   };
   
   return (
+    // isLoading ? <SkeletonComponent />:
     <>
+    <Sidebar />
       <Box
       id="Top Header"
       position="absolute"
